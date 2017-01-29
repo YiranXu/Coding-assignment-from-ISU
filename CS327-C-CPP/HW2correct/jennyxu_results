@@ -1,0 +1,278 @@
+rm -f *.o testformat 
+gcc -c testformat.c
+gcc -c weatherio.c
+gcc -o testformat testformat.o  weatherio.o
+Valid keywords: ['valid']
+Invalid keywords: ['invalid', 'not valid', "isn't valid"]
+Thread timeout: 4
+Line limit: 7
+
+
+The start of the output for each test will have either "[x]" or "[ ]",
+depending on whether your program operated correctly ("[x]"), or
+incorrectly ("[ ]"). It will be followed by the name of the file being
+tested, whether that file is valid or invalid, and a brief description of
+either what is being tested or the error contained within. After all the tests
+have been ran, your score will be displayed as both the number you got correct
+out of 51, and what percentage you got correct.
+
+All of the files named either "header_invalidX.csv" or "data_invalidX.csv" were
+written by Ian Malerich, who posted a suite of useful test cases on Blackboard.
+
+
+[x] t0.csv (valid): all default values empty
+stdout: Which line is wrong: 0
+        valid
+        
+
+[ ] t1.csv (valid): all default values with spaces
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t2.csv (valid): full header with normal data
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t3.csv (valid): non-full header with normal data
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t4.csv (valid): Date validity check
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t5.csv (valid): Dewpt validity check (numbers with '+', '-', and '.', integer values, and 1008.3)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t6.csv (valid): Dewpt Q validity check (all valid values of [0-79ACIMPRU])
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t7.csv (valid): HrMn validity check (checks various times from 0001-2359)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t8.csv (valid): I validity check
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t9.csv (valid): IDentification Name validity check (checks names of various length from 1-30)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t10.csv (valid): NCDC validity check (checks various 5-letter character combinations)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t11.csv (valid): QCP validity check (checks various values of length 4 or less)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t12.csv (valid): Checking Date and HrMn
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t13.csv (valid): Checking Dewpt and Dewpt Q
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t14.csv (valid): Checking IDentification Name, USAF, and NCDC
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t15.csv (valid): Checking I, QCP, and RHx
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t16.csv (valid): Checking Slp and Slp Q
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t17.csv (valid): Checking Temp and Temp Q
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t18.csv (valid): Checking Type
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t19.csv (valid): Checking Wind Dir, Wind Dir I, and Wind Dir Q
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t20.csv (valid): Checking Wind Spd, Wind Spd Q
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t21.csv (valid): Checking all String types (IDentification Name, NCDC, QCP, Type)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t22.csv (valid): Checking all char types (Dewpt Q, I, Slp Q, Temp Q, Wind Dir I, Wind Dir Q, Wind Spd Q)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t23.csv (valid): Checking all int types (Date, HrMn, RHx, USAF, Wind Dir)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t24.csv (valid): Checking all float types (Dewpt, Slp, Temp, Wind Spd)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t25 (valid): full header with normal data, but simply named "t25" and not "t25.csv"
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t26.csv (valid): header and data of size 1 (with HrMn)
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t27.csv (invalid): empty or spaces for non-string values with no default
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t28.csv (invalid): non-full header with an extra comma and normal data
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] t29.csv (invalid): non-full header with normal data with an extra comma
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t30.csv (invalid): nonexistent file
+stdout: <No output>
+stderr: not valid
+        
+
+[ ] t31.csv (invalid): non-full header with a missing data column
+stdout: Which line is wrong: 0
+        valid
+        
+
+[x] t32.csv (invalid): Dewpt invalidity check (non-numerical value)
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t33.csv (invalid): Dewpt invalidity check (value too long)
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t34.csv (invalid): Dewpt Q invalidity check (checks 8, which is not in spec)
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t35.csv (invalid): HrMn invalidity check (checks 12345, which is too long)
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] t36.csv (invalid): NCDC invalidity check (checks name of length 6, which is too long)
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] header_invalid0.csv (invalid): Extra comma in header; 3rd header is invalid
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid1.csv (invalid): Extra comma in header (trailing)
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid2.csv (invalid): Extra comma in header (leading)
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid3.csv (invalid): bogus header (BOGUS); 4th header is invalid
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid4.csv (invalid): 1st header is wrong and also very long (potential crash)
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid5.csv (invalid): The NCDC header is listed twice
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] header_invalid6.csv (invalid): Headers are not allowed to have spaces in front of them
+stdout: Which line is wrong: 1
+        not valid
+        
+
+[x] data_invalid0.csv (invalid): RHx should not be a float
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] data_invalid1.csv (invalid): Wind Dir should not be a float
+stdout: Which line is wrong: 7
+        not valid
+        
+
+[x] data_invalid2.csv (invalid): USAF has non-numerical data
+stdout: Which line is wrong: 6
+        not valid
+        
+
+[x] data_invalid3.csv (invalid): Wind Dir exceeds the allowed value range
+stdout: Which line is wrong: 2
+        not valid
+        
+
+[x] data_invalid4.csv (invalid): Missing field within row
+stdout: Which line is wrong: 5
+        not valid
+        
+
+[x] data_invalid5.csv (invalid): Missing field at the end of a row
+stdout: Which line is wrong: 5
+        not valid
+        
+
+[x] data_invalid6.csv (invalid): Extra field at the end of a row
+stdout: Which line is wrong: 5
+        not valid
+        
+
+score: 49 / 51 (96%)
